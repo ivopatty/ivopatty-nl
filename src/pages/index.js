@@ -62,7 +62,7 @@ const styles = (theme) => ({
 
 const IndexPage = ({classes, data}) => (
   <Layout defaultShowMenu={false}>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]}/>
+    <SEO title="Home" keywords={[`ivopatty`, `ivo`, `patty`, `consultant`]}/>
     <div className={classes.homeContainer}>
       <Img className={classes.headerImage} fluid={data.file.childImageSharp.fluid}/>
       <div className={classes.headerImage}/>

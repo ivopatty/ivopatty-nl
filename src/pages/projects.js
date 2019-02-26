@@ -16,7 +16,7 @@ import Link from "@material-ui/icons/Link";
 
 const styles = theme => ({
   "globals": {
-    "body":{
+    "body": {
       overflowX: 'hidden'
     }
   },
@@ -36,6 +36,28 @@ const styles = theme => ({
   text: {
     marginTop: theme.spacing.unit * 5,
     marginBottom: theme.spacing.unit * 5
+  },
+  subText: {
+    paddingTop: 4
+  },
+  card: {
+    height: "100%",
+    display: 'flex',
+    flexWrap: 'wrap'
+  },
+  placeholder: {
+    color: "#fff",
+    height: 100,
+    width: 100,
+    justifySelf: 'center',
+    alignSelf: 'center'
+  },
+  chip: {
+    marginRight: 6,
+    marginTop: 8
+  },
+  link: {
+    textDecoration: 'none'
   }
 });
 
@@ -45,26 +67,31 @@ const Projects = ({data, classes}) => (
     <Grid container className={classes.wrapper} alignItems={"stretch"}>
       <Grid item xs={12} className={classes.text}>
         <Typography align={"center"} variant={"h1"}>Projects</Typography>
-        <Typography align={"center"} variant={"subtitle1"} style={{paddingTop: 4}}>An overview of the things I have worked on</Typography>
+        <Typography align={"center"} variant={"subtitle1"} className={classes.subText}>An overview of the things I have
+          worked on</Typography>
       </Grid>
       {data.allContentfulProject.edges.map((item, key) => (
         <Grid style={{padding: 10}} item xs={12} md={4} lg={3} key={key} alignItems={"stretch"}>
-          <Card style={{height: "100%", display: 'flex', flexWrap: 'wrap'}}>
-            {item.node.image ? <Img className={classes.image} fluid={item.node.image.fluid}/> :
-              <div className={classes.image}><Public
-                style={{color: "#fff", height: 100, width: 100, justifySelf: 'center', alignSelf: 'center'}}/></div>}
+          <Card className={classes.card}>
+            {item.node.image ?
+              <Img className={classes.image} fluid={item.node.image.fluid}/>
+              :
+              <div className={classes.image}>
+                <Public className={classes.placeholder}/>
+              </div>
+            }
             <CardContent>
               <Typography variant={"h5"}>{item.node.name}</Typography>
               <Typography>{item.node.description.description}</Typography>
               <div style={{marginTop: 5}}>
                 {item.node.skills ? item.node.skills.map((skill, key) => (
-                  <Chip style={{marginRight: 6, marginTop: 8}} key={key} label={skill.name}/>
+                  <Chip className={classes.chip} key={key} label={skill.name}/>
                 )) : null}
               </div>
             </CardContent>
             {item.node.link ?
               <CardActions style={{paddingTop: 0}}>
-                <a href={item.node.link}>
+                <a href={item.node.link} className={classes.link}>
                   <Button size={"small"} color={"primary"}>
                     <Link style={{marginRight: 4}}/>Learn More
                   </Button>

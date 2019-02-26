@@ -16,22 +16,27 @@ const styles = () => ({
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center'
+  },
+  link: {
+    textDecoration: 'none'
   }
-})
+});
 
-const NotFoundPage = ({ classes }) => (
+const NotFoundPage = ({classes}) => (
   <Layout>
-    <SEO title="404 | Not found" />
+    <SEO title="404 | Not found"/>
     <Grid className={classes.homeContainer} container justify={"center"} alignContent={"center"}>
       <Typography variant={"h1"}>
         404
       </Typography>
-      <Typography variant={"overline"}>
-        Submit a pull request
-      </Typography>
+      <a href={`https://github.com/ivopatty/ivopatty-nl/issues`} className={classes.link}>
+        <Typography variant={"overline"}>
+          Submit a pull request
+        </Typography>
+      </a>
     </Grid>
   </Layout>
-)
+);
 
 
 export default withStyles(styles)(NotFoundPage)

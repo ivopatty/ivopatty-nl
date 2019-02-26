@@ -4,14 +4,14 @@ import Particles from "react-particles-js";
 class ParticleEmitter extends React.Component {
 
   constructor(props){
-    super(props)
+    super(props);
     this.state = {
       height: 200
     }
   }
 
   componentDidMount() {
-    let height = document.getElementById("experience").clientHeight
+    let height = document.getElementById("experience").clientHeight;
     this.setState({height})
   }
 

@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Ivo Jesse Patty`,
@@ -52,12 +56,12 @@ module.exports = {
       options: {
         spaceId: `maqkodof3hyi`,
         // Learn about environment variables: https://gatsby.app/env-vars
-        accessToken: '85c9b6d267cf6bbdaa09e31c907fdb25cbebfd93938a8749c056c03b9b510c3c',
-        // host: `preview.contentful.com`,
+        accessToken: process.env.ACCESS_TOKEN,
+        host: process.env.CONTENTFUL_HOST || `preview.contentful.com`,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
     // 'gatsby-plugin-offline',
   ],
-}
+};

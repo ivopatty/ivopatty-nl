@@ -9,9 +9,7 @@ import SEO from "../components/seo";
 import Twitter from "../components/visuals/twitter";
 import Instagram from "../components/visuals/instagram";
 import LinkedIn from "../components/visuals/linkedIn";
-import SocialIcons from "../components/socialIcons";
 import Button from "@material-ui/core/Button/Button";
-import Link from "@material-ui/core/es/Link/Link";
 import Github from "../components/visuals/github";
 
 const styles = theme => ({
@@ -32,7 +30,7 @@ const styles = theme => ({
   },
   text: {
     padding: theme.spacing.unit * 10,
-    [theme.breakpoints.down('md')]:{
+    [theme.breakpoints.down('md')]: {
       marginTop: 0,
       padding: theme.spacing.unit * 2,
     },
@@ -51,6 +49,7 @@ const styles = theme => ({
   },
   button: {
     marginTop: theme.spacing.unit * 2,
+    textDecoration: 'none'
   },
   socials: {
     flexDirection: 'row',
@@ -77,17 +76,18 @@ const About = ({data, classes}) => (
           As a kid, one of the first books I wanted was "How does it work". I was fascinated about planes and
           wanted to know how enormous things could stay in the air. Despite the initial setback of not being able to
           become a pilot because of really terrible eyesight, I still have this insatiable curiosity.
-          Fortunately for me, the world of technology is full of new and exciting developments that can quench this thirst.
+          Fortunately for me, the world of technology is full of new and exciting developments that can quench this
+          thirst.
           I love finding out how a new innovation can make the lives of the people around us better. Let's talk
           and see what we can do for each other.
         </Typography>
         <Typography style={{marginTop: 18}} variant={"overline"}>Developer / Consultant / Data Scientist</Typography>
-        <a href="mailto:ivo@ivopatty.nl?subject=Contact%20from%20ivopatty.nl">
+        <a href="mailto:ivo@ivopatty.nl?subject=Contact%20from%20ivopatty.nl" style={{textDecoration: 'none'}}>
           <Button className={classes.button} variant={"outlined"}>Let's Talk</Button>
         </a>
         <div className={classes.socials}>
           <a href="https://twitter.com/ivopatty" className={classes.icon}><Twitter fill={"#ababab"}/></a>
-          <a href="https://instagram.com/ivopatty" className={classes.icon}><Instagram fill={"#ababab"} /></a>
+          <a href="https://instagram.com/ivopatty" className={classes.icon}><Instagram fill={"#ababab"}/></a>
           <a href="https://www.linkedin.com/in/ivopatty" className={classes.icon}><LinkedIn fill={"#ababab"}/></a>
           <a href="https://github.com/ivopatty" className={classes.icon}><Github fill={"#ababab"}/></a>
         </div>

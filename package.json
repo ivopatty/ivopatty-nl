@@ -1,12 +1,13 @@
 {
   "name": "ivopatty-nl",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "The personal website of Ivo Patty <ivopatty.nl>",
   "version": "0.1.0",
   "author": "Ivo Patty <ivo@ivopatty.nl>",
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "dotenv": "^6.2.0",
     "gatsby": "^2.1.10",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.18",
@@ -40,9 +41,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/ivopatty/ivopatty-nl"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/ivopatty/ivopatty-nl/issues"
   }
 }

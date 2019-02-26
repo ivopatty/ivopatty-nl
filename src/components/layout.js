@@ -41,7 +41,7 @@ const Layout = ({children, defaultShowMenu}) => (
           <Typography>
             © {new Date().getFullYear()} - Ivo Patty
           </Typography>
-          <Typography><Link to={'/legal'}>Legal & Privacy</Link></Typography>
+          <Typography><Link to={'/legal'} style={{textDecoration: 'none'}}>Legal & Privacy</Link></Typography>
           <ArrowUp onClick={smoothScroll}/>
         </footer>
       </>
