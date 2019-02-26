@@ -1,22 +1,31 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "ivopatty-nl",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Ivo Patty <ivo@ivopatty.nl>",
   "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "gatsby": "^2.1.10",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-manifest": "^2.0.18",
+    "gatsby-plugin-material-ui": "^1.2.4",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
+    "gatsby-plugin-react-svg": "^2.0.0",
     "gatsby-plugin-sharp": "^2.0.21",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-source-contentful": "^2.0.32",
     "gatsby-source-filesystem": "^2.0.20",
     "gatsby-transformer-sharp": "^2.1.14",
     "prop-types": "^15.7.2",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-particles-js": "^2.4.2",
+    "react-svg": "^7.2.7",
+    "react-vertical-timeline-component": "^2.3.1"
   },
   "keywords": [
     "gatsby"

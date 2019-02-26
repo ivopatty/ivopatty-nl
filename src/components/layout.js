@@ -1,11 +1,20 @@
 import React from "react"
 import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-
+import {graphql, Link, StaticQuery} from "gatsby"
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Header from "./header"
-import "./layout.css"
+import ArrowUp from '@material-ui/icons/ArrowUpward'
+import Typography from "@material-ui/core/es/Typography/Typography";
 
-const Layout = ({ children }) => (
+const smoothScroll = () => {
+  const c = document.documentElement.scrollTop || document.body.scrollTop;
+  if (c > 0) {
+    window.requestAnimationFrame(smoothScroll);
+    window.scrollTo(0, c - c / 8);
+  }
+};
+
+const Layout = ({children, defaultShowMenu}) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -18,29 +27,34 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `0px 1.0875rem 1.45rem`,
-            paddingTop: 0,
-          }}
-        >
-          <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
+        <CssBaseline/>
+        <Header defaultShowMenu={defaultShowMenu} siteTitle={data.site.siteMetadata.title}/>
+        <main>{children}</main>
+        <footer style={{
+          backgroundColor: '#fafafa',
+          zIndex: 100,
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          padding: 18
+        }}>
+          <Typography>
+            © {new Date().getFullYear()} - Ivo Patty
+          </Typography>
+          <Typography><Link to={'/legal'}>Legal & Privacy</Link></Typography>
+          <ArrowUp onClick={smoothScroll}/>
+        </footer>
       </>
     )}
   />
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
+
+Layout.defaultProps = {
+  defaultShowMenu: true
+};
 
 export default Layout
