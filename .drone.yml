@@ -2,8 +2,8 @@ kind: pipeline
 name: default
 
 steps:
-- name: frontend
+- name: build
   image: node
   commands:
-  - yarn install
-  - yarn build
+  - npm install
+  - npm run build
