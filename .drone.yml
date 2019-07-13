@@ -19,3 +19,9 @@ steps:
       from_secret: deploy_token
     registry: rg.fr-par.scw.cloud/ipcloud
     repo: rg.fr-par.scw.cloud/ipcloud/ivopatty-nl
+- name: deploy
+  image: quay.io/honestbee/drone-kubernetes
+  deployment: ivopatty-nl
+  repo: rg.fr-par.scw.cloud/ipcloud/ivopatty-nl
+  container: ivopatty-nl
+  tag: latest
