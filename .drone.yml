@@ -25,3 +25,4 @@ steps:
   repo: rg.fr-par.scw.cloud/ipcloud/ivopatty-nl
   container: ivopatty-nl
   tag: latest
+  namespace: ivopatty
