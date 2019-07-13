@@ -1,7 +1,7 @@
 kind: pipeline
 name: default
 steps:
-- name: test
+- name: build
   image: node:11
   commands:
   - yarn install
@@ -11,3 +11,10 @@ steps:
       from_secret: ACCESS_TOKEN
     CONTENTFUL_HOST:
       from_secret: CONTENTFUL_HOST
+- name: publish
+  image: plugins/docker
+  settings:
+    username: nologin
+    password:
+      from_secret: docker_password
+    repo: rg.fr-par.scw.cloud/ipcloud/ivopatty-nl
