@@ -4,7 +4,7 @@ steps:
 - name: test
   image: node:11
   commands:
-  - yarn ci
+  - yarn install
   - yarn build
   environment:
     ACCESS_TOKEN:
