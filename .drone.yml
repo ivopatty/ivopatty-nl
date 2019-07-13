@@ -1,10 +1,12 @@
----
 kind: pipeline
-name: default
-
 steps:
-- name: build
+- name: test
   image: node
   commands:
   - npm install
   - npm run build
+services:
+- name: database
+  image: mysql
+  ports:
+  - 3306
