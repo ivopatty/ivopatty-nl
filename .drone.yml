@@ -16,5 +16,5 @@ steps:
   settings:
     username: nologin
     password:
-      from_secret: docker_password
+      from_secret: deploy_token
     repo: rg.fr-par.scw.cloud/ipcloud/ivopatty-nl
