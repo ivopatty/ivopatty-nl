@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 steps:
 - name: test
-  image: node
+  image: node:11
   commands:
   - npm install
   - npm run build
