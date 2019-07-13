@@ -4,5 +4,10 @@ steps:
 - name: test
   image: node:11
   commands:
-  - npm install
-  - npm run build
+  - yarn ci
+  - yarn build
+  environment:
+    ACCESS_TOKEN:
+      from_secret: ACCESS_TOKEN
+    CONTENTFUL_HOST:
+      from_secret: CONTENTFUL_HOST
