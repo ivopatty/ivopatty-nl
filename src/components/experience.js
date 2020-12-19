@@ -36,7 +36,7 @@ const Experience = ({classes}) => (
         iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
         icon={<MultilineChart/>}
       >
-        <Typography variant={"h5"}>Lead Data Scientist</Typography>
+        <Typography variant={"h5"}>Co-Lead Data Science</Typography>
         <Typography>theFactor.e | Groningen</Typography>
         <Typography>
           Cooperatively head up the Data Science division of theFactor.e, where I focus on modernizing the
