@@ -2,7 +2,7 @@ kind: pipeline
 name: default
 steps:
 - name: build
-  image: node:11
+  image: node:13
   commands:
   - yarn install
   - yarn build
