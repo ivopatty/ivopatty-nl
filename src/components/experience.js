@@ -32,14 +32,50 @@ const Experience = ({classes}) => (
     <ParticleEmitter/>
     <VerticalTimeline>
       <VerticalTimelineElement
-        date={"2018 - present"}
+          date={"2020 - present"}
+          iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
+          icon={<MultilineChart/>}
+      >
+        <Typography variant={"h5"}>Consultant Data Engineer</Typography>
+        <Typography>Big Data Republic | Utrecht</Typography>
+        <Typography>
+          I work as a Data Engineering consultant at BigData Republic where I specialize in MLOps and data operations
+          in the cloud. My primary focus is in modernizing existing data architectures and creating new platforms
+          on both AWS and Azure.
+        </Typography>
+        <a className={classes.buttonLink} href="https://bigdatarepublic.nl">
+          <Button className={classes.buttonLink} variant={"outlined"}>
+            Learn More
+          </Button>
+        </a>
+      </VerticalTimelineElement>
+      <VerticalTimelineElement
+          date={"2020 - present"}
+          iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
+          icon={<MultilineChart/>}
+      >
+        <Typography variant={"h5"}>Data Engineer</Typography>
+        <Typography>KLM Royal Dutch Airlines | Schiphol</Typography>
+        <Typography>
+          Through BigData Republic I consult the KLM Engineering & Maintenance division on their predictive maintenance
+          products. I assist and coach their team in creating new value through the use of big data technologies such
+          as Spark, Hadoop and Dask. Furthermore, I consult their teams on new innovation in the marketplace.
+        </Typography>
+        <a className={classes.buttonLink} href="https://www.afiklmem.com/en/solutions/about-prognos">
+          <Button className={classes.buttonLink} variant={"outlined"}>
+            Learn More
+          </Button>
+        </a>
+      </VerticalTimelineElement>
+      <VerticalTimelineElement
+        date={"2018 - 2019"}
         iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
         icon={<MultilineChart/>}
       >
         <Typography variant={"h5"}>Co-Lead Data Science</Typography>
         <Typography>theFactor.e | Groningen</Typography>
         <Typography>
-          Cooperatively head up the Data Science division of theFactor.e, where I focus on modernizing the
+          Cooperatively headed up the Data Science division of theFactor.e, where I focused on modernizing the
           data platforms of our customers. Also created the Data Science Sprint to help businesses find the hidden
           insights in their data and translate them to practical use-cases.
           Developed solutions include Candidate Matching, NLP, Chatbots and Voice.
@@ -69,7 +105,7 @@ const Experience = ({classes}) => (
         </a>
       </VerticalTimelineElement>
       <VerticalTimelineElement
-        date={"2017 - present"}
+        date={"2017 - 2019"}
         iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
         icon={<DesktopMac/>}
       >

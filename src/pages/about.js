@@ -34,7 +34,10 @@ const styles = theme => ({
       marginTop: 0,
       padding: theme.spacing.unit * 2,
     },
-    marginTop: 64
+    marginTop: 64,
+    justifyContent: 'center',
+    display: 'flex',
+    flexDirection: 'column'
   },
   name: {
     fontSize: '3em',
@@ -81,7 +84,7 @@ const About = ({data, classes}) => (
           I love finding out how a new innovation can make the lives of the people around us better. Let's talk
           and see what we can do for each other.
         </Typography>
-        <Typography style={{marginTop: 18}} variant={"overline"}>Developer / Consultant / Data Scientist</Typography>
+        <Typography style={{marginTop: 18}} variant={"overline"}>Developer / Consultant / Data Engineer</Typography>
         <a href="mailto:ivo@ivopatty.nl?subject=Contact%20from%20ivopatty.nl" style={{textDecoration: 'none'}}>
           <Button className={classes.button} variant={"outlined"}>Let's Talk</Button>
         </a>
