@@ -31,15 +31,32 @@ const Experience = ({classes}) => (
   <div className={classes.work} id={"experience"}>
     <ParticleEmitter/>
     <VerticalTimeline>
+    <VerticalTimelineElement
+          date={"2022 - present"}
+          iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
+          icon={<MultilineChart/>}
+      >
+        <Typography variant={"h5"}>Data Engineer</Typography>
+        <Typography>Cloud Technology Solutions | Utrecht</Typography>
+        <Typography>
+          I currently work as a Data Engineer within Cloud Technology Solutions. Here I specialize in Google Cloud platform
+          implementations of data products. I help CTS customers modernize their infrastructure and get from data to insights.
+        </Typography>
+        <a className={classes.buttonLink} href="https://cts.co">
+          <Button className={classes.buttonLink} variant={"outlined"}>
+            Learn More
+          </Button>
+        </a>
+      </VerticalTimelineElement>
       <VerticalTimelineElement
-          date={"2020 - present"}
+          date={"2020 - 2022"}
           iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
           icon={<MultilineChart/>}
       >
         <Typography variant={"h5"}>Consultant Data Engineer</Typography>
         <Typography>Big Data Republic | Utrecht</Typography>
         <Typography>
-          I work as a Data Engineering consultant at BigData Republic where I specialize in MLOps and data operations
+          I worked as a Data Engineering consultant at BigData Republic where I specialize in MLOps and data operations
           in the cloud. My primary focus is in modernizing existing data architectures and creating new platforms
           on both AWS and Azure.
         </Typography>
@@ -50,14 +67,14 @@ const Experience = ({classes}) => (
         </a>
       </VerticalTimelineElement>
       <VerticalTimelineElement
-          date={"2020 - present"}
+          date={"2020 - 2022"}
           iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
           icon={<MultilineChart/>}
       >
         <Typography variant={"h5"}>Data Engineer</Typography>
         <Typography>KLM Royal Dutch Airlines | Schiphol</Typography>
         <Typography>
-          Through BigData Republic I consult the KLM Engineering & Maintenance division on their predictive maintenance
+          Through BigData Republic I consulted the KLM Engineering & Maintenance division on their predictive maintenance
           products. I assist and coach their team in creating new value through the use of big data technologies such
           as Spark, Hadoop and Dask. Furthermore, I consult their teams on new innovation in the marketplace.
         </Typography>
@@ -80,7 +97,7 @@ const Experience = ({classes}) => (
           insights in their data and translate them to practical use-cases.
           Developed solutions include Candidate Matching, NLP, Chatbots and Voice.
         </Typography>
-        <a className={classes.buttonLink} href="https://tfe.nl/diensten/techniek/machine-learning-ai/">
+        <a className={classes.buttonLink} href="https://tfe.nl/">
           <Button className={classes.buttonLink} variant={"outlined"}>
             Learn More (NL)
           </Button>
@@ -116,7 +133,7 @@ const Experience = ({classes}) => (
           & Cloud. While I am a nerd at heart, I also know how to translate these technical innovations to practical
           applications to give our customers a competitive edge in their industry.
         </Typography>
-        <a className={classes.buttonLink} href="https://tfe.nl/diensten/strategie/innovaties/">
+        <a className={classes.buttonLink} href="https://tfe.nl/">
           <Button className={classes.buttonLink} variant={"outlined"}>
             Learn More (NL)
           </Button>
