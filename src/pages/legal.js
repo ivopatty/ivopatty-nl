@@ -1,13 +1,13 @@
 import React from 'react'
 import Layout from "../components/layout";
-import Typography from "@material-ui/core/es/Typography/Typography";
-import Grid from "@material-ui/core/Grid/Grid";
-import TableHead from "@material-ui/core/es/TableHead/TableHead";
-import TableCell from "@material-ui/core/es/TableCell/TableCell";
-import TableRow from "@material-ui/core/TableRow/TableRow";
-import Table from "@material-ui/core/Table/Table";
-import TableBody from "@material-ui/core/TableBody/TableBody";
-import withStyles from "@material-ui/core/styles/withStyles"
+import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
+import TableHead from "@mui/material/TableHead";
+import TableCell from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import { withStyles } from "@mui/styles"
 
 const styles = theme => ({
   header: {
@@ -17,7 +17,7 @@ const styles = theme => ({
 
 const Legal = ({ classes }) => (
   <Layout>
-    <Grid style={{marginTop: 70}} container justify={"center"}>
+    <Grid style={{ marginTop: 70 }} container justify={"center"}>
       <Grid item xs={11} md={7}>
         <Typography align={"center"} variant={"h2"}>
           Legal Notices
@@ -33,16 +33,16 @@ const Legal = ({ classes }) => (
         <Typography variant={"h4"} className={classes.header}>Attribution</Typography>
         <Typography>
           The Social Icons, on the homepage, are a derivative of <a
-          href={'https://www.iconfinder.com/iconsets/social-media-icons-the-circle-set'}>
-          The Circle Set</a> by <a href={'https://www.iconfinder.com/thepinkgroup'}> The Pink Group</a> licensed
+            href={'https://www.iconfinder.com/iconsets/social-media-icons-the-circle-set'}>
+            The Circle Set</a> by <a href={'https://www.iconfinder.com/thepinkgroup'}> The Pink Group</a> licensed
           under <a href="https://creativecommons.org/licenses/by/3.0/"> CC BY 3.0</a>
         </Typography>
         <Typography>
           This website is powered by <a href="https://www.gatsbyjs.org/">GatsbyJS</a>, <a
-          href="https://reactjs.org/">React</a> and <a href="https://material-ui.com">Material-UI</a> licensed under
+            href="https://reactjs.org/">React</a> and <a href="https://material-ui.com">Material-UI</a> licensed under
           the MIT License
         </Typography>
-        <hr/>
+        <hr />
         <Typography variant={"h4"} className={classes.header}>Privacy</Typography>
         <Typography>
           Your privacy is important to me. I take care to process all shared personal information confidentially. This

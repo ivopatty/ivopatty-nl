@@ -1,16 +1,17 @@
 import React from 'react';
-import {VerticalTimeline, VerticalTimelineElement} from "react-vertical-timeline-component/dist-es6";
-import MultilineChart from "@material-ui/icons/MultilineChart";
-import Typography from "@material-ui/core/Typography/Typography";
-import Button from "@material-ui/core/Button/Button";
-import Stars from "@material-ui/icons/Stars"
-import School from "@material-ui/icons/School";
-import Straighten from "@material-ui/icons/Straighten"
-import Search from "@material-ui/icons/Search";
-import DesktopMac from '@material-ui/icons/DesktopMac'
+import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
+import MultilineChart from "@mui/icons-material/MultilineChart";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Stars from "@mui/icons-material/Stars"
+import School from "@mui/icons-material/School";
+import Straighten from "@mui/icons-material/Straighten"
+import Search from "@mui/icons-material/Search";
+import DesktopMac from '@mui/icons-material/DesktopMac'
+import "react-vertical-timeline-component/style.min.css"; // Ensure css is imported if not already in timeline.css or similar. Actually timeline.css is imported.
 import "../styles/timeline.css"
-import withStyles from '@material-ui/core/styles/withStyles';
-import AssistantPhoto from '@material-ui/icons/AssistantPhoto';
+import { withStyles } from "@mui/styles"
+import AssistantPhoto from '@mui/icons-material/AssistantPhoto';
 import ParticleEmitter from "./visuals/particleEmitter";
 
 const styles = theme => ({
@@ -20,21 +21,21 @@ const styles = theme => ({
   },
   buttonLink: {
     textDecoration: 'none',
-    marginTop: theme.spacing.unit,
+    marginTop: theme.spacing(1),
     "@media (max-width: 1200px)": {
-      marginLeft: theme.spacing.unit
+      marginLeft: theme.spacing(1)
     }
   }
 });
 
-const Experience = ({classes}) => (
+const Experience = ({ classes }) => (
   <div className={classes.work} id={"experience"}>
-    <ParticleEmitter/>
+    <ParticleEmitter />
     <VerticalTimeline>
-    <VerticalTimelineElement
-          date={"2022 - present"}
-          iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-          icon={<MultilineChart/>}
+      <VerticalTimelineElement
+        date={"2022 - present"}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<MultilineChart />}
       >
         <Typography variant={"h5"}>Data Engineer</Typography>
         <Typography>Cloud Technology Solutions | Utrecht</Typography>
@@ -49,9 +50,9 @@ const Experience = ({classes}) => (
         </a>
       </VerticalTimelineElement>
       <VerticalTimelineElement
-          date={"2020 - 2022"}
-          iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-          icon={<MultilineChart/>}
+        date={"2020 - 2022"}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<MultilineChart />}
       >
         <Typography variant={"h5"}>Consultant Data Engineer</Typography>
         <Typography>Big Data Republic | Utrecht</Typography>
@@ -67,9 +68,9 @@ const Experience = ({classes}) => (
         </a>
       </VerticalTimelineElement>
       <VerticalTimelineElement
-          date={"2020 - 2022"}
-          iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-          icon={<MultilineChart/>}
+        date={"2020 - 2022"}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<MultilineChart />}
       >
         <Typography variant={"h5"}>Data Engineer</Typography>
         <Typography>KLM Royal Dutch Airlines | Schiphol</Typography>
@@ -86,8 +87,8 @@ const Experience = ({classes}) => (
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date={"2018 - 2019"}
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<MultilineChart/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<MultilineChart />}
       >
         <Typography variant={"h5"}>Co-Lead Data Science</Typography>
         <Typography>theFactor.e | Groningen</Typography>
@@ -105,8 +106,8 @@ const Experience = ({classes}) => (
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date={"2017 - present"}
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<AssistantPhoto/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<AssistantPhoto />}
       >
         <Typography variant={"h5"}>Co-founder / Technical Lead</Typography>
         <Typography>Stichting Ik Ben Sofie | Utrecht</Typography>
@@ -123,8 +124,8 @@ const Experience = ({classes}) => (
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date={"2017 - 2019"}
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<DesktopMac/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<DesktopMac />}
       >
         <Typography variant={"h5"}>Innovation Consultant</Typography>
         <Typography>theFactor.e | Groningen</Typography>
@@ -141,12 +142,12 @@ const Experience = ({classes}) => (
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date={"2017"}
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<School/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<School />}
       >
         <Typography variant={"h5"}>BSc Communication & Multimedia Design</Typography>
-        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}><Stars fill={"#777777"}/><p
-          style={{margin: 0, marginLeft: 6, fontFamily: '"Roboto", sans-serif'}}>Cum Laude</p></div>
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}><Stars fill={"#777777"} /><p
+          style={{ margin: 0, marginLeft: 6, fontFamily: '"Roboto", sans-serif' }}>Cum Laude</p></div>
         <Typography>NHL University of Applied Science | Leeuwarden</Typography>
         <Typography>
           Graduated with honors from my Bachelors study Communication & Multimedia Design (CMD) in Leeuwarden with a
@@ -156,8 +157,8 @@ const Experience = ({classes}) => (
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date="2016 - 2017"
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<Search/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<Search />}
       >
         <Typography variant={"h5"}>Intern</Typography>
         <Typography>theFactor.e | Groningen</Typography>
@@ -172,16 +173,16 @@ const Experience = ({classes}) => (
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date="2016 - 2017 (7 mos)"
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<Straighten/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<Straighten />}
       >
         <Typography variant={"h5"}>Software Architect</Typography>
         <Typography>Vertimart Information Systems | Amsterdam</Typography>
       </VerticalTimelineElement>
       <VerticalTimelineElement
         date="2015 - 2017"
-        iconStyle={{background: 'rgb(33, 150, 243)', color: '#fff'}}
-        icon={<DesktopMac/>}
+        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+        icon={<DesktopMac />}
       >
         <Typography variant={"h5"}>Software Developer</Typography>
         <Typography>NHL University of Applied Science | Leeuwarden</Typography>

@@ -1,10 +1,10 @@
 import React from "react"
 import PropTypes from "prop-types"
-import {graphql, Link, StaticQuery} from "gatsby"
-import CssBaseline from '@material-ui/core/CssBaseline';
+import { graphql, Link, StaticQuery } from "gatsby"
+import CssBaseline from '@mui/material/CssBaseline';
 import Header from "./header"
-import ArrowUp from '@material-ui/icons/ArrowUpward'
-import Typography from "@material-ui/core/es/Typography/Typography";
+import ArrowUp from '@mui/icons-material/ArrowUpward';
+import Typography from "@mui/material/Typography";
 
 const smoothScroll = () => {
   const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -14,7 +14,7 @@ const smoothScroll = () => {
   }
 };
 
-const Layout = ({children, defaultShowMenu}) => (
+const Layout = ({ children, defaultShowMenu }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -27,8 +27,8 @@ const Layout = ({children, defaultShowMenu}) => (
     `}
     render={data => (
       <>
-        <CssBaseline/>
-        <Header defaultShowMenu={defaultShowMenu} siteTitle={data.site.siteMetadata.title}/>
+        <CssBaseline />
+        <Header defaultShowMenu={defaultShowMenu} siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
         <footer style={{
           backgroundColor: '#fafafa',
@@ -41,8 +41,8 @@ const Layout = ({children, defaultShowMenu}) => (
           <Typography>
             © {new Date().getFullYear()} - Ivo Patty
           </Typography>
-          <Typography><Link to={'/legal'} style={{textDecoration: 'none'}}>Legal & Privacy</Link></Typography>
-          <ArrowUp onClick={smoothScroll}/>
+          <Typography><Link to={'/legal'} style={{ textDecoration: 'none' }}>Legal & Privacy</Link></Typography>
+          <ArrowUp onClick={smoothScroll} />
         </footer>
       </>
     )}

@@ -2,9 +2,9 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Grid from "@material-ui/core/Grid/Grid";
-import Typography from "@material-ui/core/Typography/Typography";
-import withStyles from '@material-ui/core/styles/withStyles'
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import { withStyles } from "@mui/styles"
 
 const styles = () => ({
   homeContainer: {
@@ -22,9 +22,9 @@ const styles = () => ({
   }
 });
 
-const NotFoundPage = ({classes}) => (
+const NotFoundPage = ({ classes }) => (
   <Layout>
-    <SEO title="404 | Not found"/>
+    <SEO title="404 | Not found" />
     <Grid className={classes.homeContainer} container justify={"center"} alignContent={"center"}>
       <Typography variant={"h1"}>
         404

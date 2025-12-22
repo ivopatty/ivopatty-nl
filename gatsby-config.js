@@ -17,6 +17,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -31,12 +32,7 @@ module.exports = {
         icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
-    {
-      resolve: `gatsby-plugin-material-ui`,
-      options: {
-        productionPrefix: 'ip'
-      },
-    },
+    `gatsby-plugin-emotion`,
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
