@@ -41,7 +41,7 @@
     margin: 2em 0;
 }
 
-.vertical-timeline-element > div {
+.vertical-timeline-element>div {
     min-height: 1px
 }
 
@@ -95,6 +95,12 @@
 }
 
 @media only screen and (min-width: 1170px) {
+    .vertical-timeline--two-columns .vertical-timeline-element-content {
+        margin-left: 10px !important;
+    }
+}
+
+@media only screen and (min-width: 1170px) {
     .vertical-timeline--two-columns .vertical-timeline-element-icon {
         width: 60px;
         height: 60px;
@@ -124,10 +130,12 @@
         opacity: 0;
         -webkit-transform: scale(.5)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: scale(1.2)
     }
+
     100% {
         -webkit-transform: scale(1)
     }
@@ -138,10 +146,12 @@
         opacity: 0;
         -moz-transform: scale(.5)
     }
+
     60% {
         opacity: 1;
         -moz-transform: scale(1.2)
     }
+
     100% {
         -moz-transform: scale(1)
     }
@@ -156,6 +166,7 @@
         -o-transform: scale(.5);
         transform: scale(.5)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: scale(1.2);
@@ -164,6 +175,7 @@
         -o-transform: scale(1.2);
         transform: scale(1.2)
     }
+
     100% {
         -webkit-transform: scale(1);
         -moz-transform: scale(1);
@@ -197,7 +209,8 @@
     color: #303e49
 }
 
-.vertical-timeline-element-content .vertical-timeline-element-date, .vertical-timeline-element-content p {
+.vertical-timeline-element-content .vertical-timeline-element-date,
+.vertical-timeline-element-content p {
     font-size: 13px;
     font-size: .8125rem;
     font-weight: 500;
@@ -282,12 +295,14 @@
         font-size: 1rem
     }
 
-    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content, .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content {
+    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content,
+    .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content {
         float: right;
-        margin-right: 60px;
+        margin-right: 10px;
     }
 
-    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content::before, .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content::before {
+    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content::before,
+    .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content::before {
         top: 24px;
         left: auto;
         right: 100%;
@@ -295,9 +310,10 @@
         border-right-color: #fff
     }
 
-    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date, .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
+    .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date,
+    .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
         left: auto;
-        right: 124%;
+        right: 10%;
         text-align: right
     }
 }
@@ -314,7 +330,9 @@
 }
 
 @media only screen and (min-width: 1170px) {
-    .vertical-timeline--two-columns.vertical-timeline--animate .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content.bounce-in, .vertical-timeline--two-columns.vertical-timeline--animate .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content.bounce-in {
+
+    .vertical-timeline--two-columns.vertical-timeline--animate .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content.bounce-in,
+    .vertical-timeline--two-columns.vertical-timeline--animate .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content.bounce-in {
         -webkit-animation: cd-bounce-2-inverse .6s;
         -moz-animation: cd-bounce-2-inverse .6s;
         animation: cd-bounce-2-inverse .6s
@@ -335,10 +353,12 @@
         opacity: 0;
         -webkit-transform: translateX(-100px)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: translateX(20px)
     }
+
     100% {
         -webkit-transform: translateX(0)
     }
@@ -349,10 +369,12 @@
         opacity: 0;
         -moz-transform: translateX(-100px)
     }
+
     60% {
         opacity: 1;
         -moz-transform: translateX(20px)
     }
+
     100% {
         -moz-transform: translateX(0)
     }
@@ -367,6 +389,7 @@
         -o-transform: translateX(-100px);
         transform: translateX(-100px)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: translateX(20px);
@@ -375,6 +398,7 @@
         -o-transform: translateX(20px);
         transform: translateX(20px)
     }
+
     100% {
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);
@@ -389,10 +413,12 @@
         opacity: 0;
         -webkit-transform: translateX(100px)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: translateX(-20px)
     }
+
     100% {
         -webkit-transform: translateX(0)
     }
@@ -403,10 +429,12 @@
         opacity: 0;
         -moz-transform: translateX(100px)
     }
+
     60% {
         opacity: 1;
         -moz-transform: translateX(-20px)
     }
+
     100% {
         -moz-transform: translateX(0)
     }
@@ -421,6 +449,7 @@
         -o-transform: translateX(100px);
         transform: translateX(100px)
     }
+
     60% {
         opacity: 1;
         -webkit-transform: translateX(-20px);
@@ -429,6 +458,7 @@
         -o-transform: translateX(-20px);
         transform: translateX(-20px)
     }
+
     100% {
         -webkit-transform: translateX(0);
         -moz-transform: translateX(0);

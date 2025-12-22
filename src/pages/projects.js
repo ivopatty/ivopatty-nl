@@ -72,28 +72,28 @@ const Projects = ({ data }) => {
           <Typography align={"center"} variant={"subtitle1"} className={classes.subText}>An overview of the things I have
             worked on</Typography>
         </Grid>
-        {data.allContentfulProject.edges.map((item, key) => (
+        {data.contentfulHomePage.experiences.map((item, key) => (
           <Grid style={{ padding: 10 }} item xs={12} md={4} lg={3} key={key} alignItems={"stretch"}>
             <Card className={classes.card}>
-              {item.node.image ?
-                <GatsbyImage className={classes.image} image={item.node.image.gatsbyImageData} alt={item.node.name} />
+              {item.image ?
+                <GatsbyImage className={classes.image} image={item.image.gatsbyImageData} alt={item.name} />
                 :
                 <div className={classes.image}>
                   <Public className={classes.placeholder} />
                 </div>
               }
-              <CardContent>
-                <Typography variant={"h5"}>{item.node.name}</Typography>
-                <Typography>{item.node.description.description}</Typography>
+              <CardContent style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Typography variant={"h5"}>{item.name}</Typography>
+                <Typography>{item.description.description}</Typography>
                 <div style={{ marginTop: 5 }}>
-                  {item.node.skills ? item.node.skills.map((skill, key) => (
+                  {item.skills ? item.skills.map((skill, key) => (
                     <Chip className={classes.chip} key={key} label={skill.name} />
                   )) : null}
                 </div>
               </CardContent>
-              {item.node.link ?
+              {item.link ?
                 <CardActions style={{ paddingTop: 0 }}>
-                  <a href={item.node.link} className={classes.link}>
+                  <a href={item.link} className={classes.link}>
                     <Button size={"small"} color={"primary"}>
                       <LinkIcon style={{ marginRight: 4 }} />Learn More
                     </Button>
@@ -112,9 +112,8 @@ export default Projects
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allContentfulProject(filter: {node_locale: {eq: "en-US"}}, sort: {fields: [order], order: ASC}) {
-      edges {
-        node {
+    contentfulHomePage{
+      experiences{
           name
           description{
             description
@@ -129,5 +128,4 @@ export const pageQuery = graphql`
         }
       }
     }
-  }
 `;

@@ -25,7 +25,6 @@ const useStyles = makeStyles()((theme) => ({
   image: {
     [theme.breakpoints.up('md')]: {
       height: '100vh',
-      position: 'fixed'
     }
   },
   text: {
@@ -72,7 +71,7 @@ const About = ({ data }) => {
       <SEO title={"About Me"} />
       <Grid container>
         <Grid className={classes.imageWrapper} item md={6} xs={12}>
-          <GatsbyImage className={classes.image} image={data.file.childImageSharp.gatsbyImageData} alt="Ivo Patty" style={{ position: "fixed" }} />
+          <GatsbyImage className={classes.image} image={data.file.childImageSharp.gatsbyImageData} alt="Ivo Patty" />
         </Grid>
         <Grid item md={6} xs={12} className={classes.text}>
           <Typography>Hi, my name is</Typography>

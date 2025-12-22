@@ -84,7 +84,6 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" keywords={[`ivopatty`, `ivo`, `patty`, `consultant`]} />
       <div className={classes.homeContainer}>
         <GatsbyImage className={classes.headerImage} image={getImage(data.file)} alt="Background" style={{ position: "absolute" }} />
-        {JSON.stringify(data.file)}
         <div className={classes.headerImage} />
         <Grow in={true} timeout={750}>
           <div>

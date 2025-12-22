@@ -39,13 +39,14 @@ const Experience = () => {
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
           icon={<MultilineChart />}
         >
-          <Typography variant={"h5"}>Data Engineer</Typography>
-          <Typography>Cloud Technology Solutions | Utrecht</Typography>
+          <Typography variant={"h5"}>Lead Data Engineer</Typography>
+          <Typography>Qodea | Utrecht/UK/RO</Typography>
           <Typography>
-            I currently work as a Data Engineer within Cloud Technology Solutions. Here I specialize in Google Cloud platform
-            implementations of data products. I help CTS customers modernize their infrastructure and get from data to insights.
+            I currently work as a Lead Data Engineer within Qodea. At Qodea I lead a team of 9 other Data Engineering Consultants
+            who assist our clients in modernizing their data platforms and getting from data to insights. We specialize in Google Cloud
+            platform implementations of data products as well as providing cutting edge Generative AI solutions.
           </Typography>
-          <a className={classes.buttonLink} href="https://cts.co">
+          <a className={classes.buttonLink} href="https://qodea.com">
             <Button className={classes.buttonLink} variant={"outlined"}>
               Learn More
             </Button>
@@ -107,7 +108,7 @@ const Experience = () => {
           </a>
         </VerticalTimelineElement>
         <VerticalTimelineElement
-          date={"2017 - present"}
+          date={"2017 - 2022"}
           iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
           icon={<AssistantPhoto />}
         >
