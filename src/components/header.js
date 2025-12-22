@@ -1,15 +1,15 @@
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useState, useEffect } from "react"
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Link } from 'gatsby'
-import { withStyles } from '@mui/styles';
+import { makeStyles } from 'tss-react/mui';
 import Person from '@mui/icons-material/Person';
 import Button from "@mui/material/Button";
 import Brush from '@mui/icons-material/Brush';
 
-const styles = theme => ({
+const useStyles = makeStyles()((theme) => ({
   homeLink: {
     textDecoration: 'none',
     color: '#fff',
@@ -35,63 +35,53 @@ const styles = theme => ({
       display: 'none'
     }
   }
-});
+}));
 
-class Header extends React.Component {
+const Header = ({ siteTitle, defaultShowMenu }) => {
+  const { classes, cx } = useStyles();
+  const [showMenu, setShowMenu] = useState(defaultShowMenu);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      showMenu: this.props.defaultShowMenu
-    }
-  }
+  useEffect(() => {
+    const scrollAction = () => {
+      let st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > 0) {
+        setShowMenu(true)
+      } else if (!defaultShowMenu) {
+        setShowMenu(false)
+      }
+    };
 
-  scrollAction = () => {
-    let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > 0) {
-      this.setState({ showMenu: true })
-    } else if (!this.props.defaultShowMenu) {
-      this.setState({ showMenu: false })
-    }
-  };
+    window.addEventListener("scroll", scrollAction, false);
+    return () => {
+      window.removeEventListener("scroll", scrollAction);
+    };
+  }, [defaultShowMenu]);
 
-  componentDidMount() {
-    window.addEventListener("scroll", this.scrollAction, false);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.scrollAction)
-  }
-
-  render() {
-    const { siteTitle, classes } = this.props;
-    const { showMenu } = this.state;
-    return (
-      <header>
-        <AppBar className={`${showMenu ? "" : classes.transparent} ${classes.banner}`} position="fixed" color="primary">
-          <Toolbar style={{ justifyContent: 'space-between' }}>
-            <Typography variant="h6" color="inherit">
-              <Link to={'/'} className={classes.homeLink}>{siteTitle}</Link>
-            </Typography>
-            <div>
-              <Link to={'/projects/'} className={classes.homeLink}>
-                <Button className={classes.button} color={"inherit"} variant={"text"}>
-                  <Brush className={classes.icon} />
-                  <span className={classes.buttonText}>Projects</span>
-                </Button>
-              </Link>
-              <Link to={'/about/'} className={classes.homeLink}>
-                <Button className={classes.button} color={"inherit"} variant={"text"}>
-                  <Person className={classes.icon} />
-                  <span className={classes.buttonText}>About</span>
-                </Button>
-              </Link>
-            </div>
-          </Toolbar>
-        </AppBar>
-      </header>
-    )
-  }
+  return (
+    <header>
+      <AppBar className={cx(classes.banner, { [classes.transparent]: !showMenu })} position="fixed" color="primary">
+        <Toolbar style={{ justifyContent: 'space-between' }}>
+          <Typography variant="h6" color="inherit">
+            <Link to={'/'} className={classes.homeLink}>{siteTitle}</Link>
+          </Typography>
+          <div>
+            <Link to={'/projects/'} className={classes.homeLink}>
+              <Button className={classes.button} color={"inherit"} variant={"text"}>
+                <Brush className={classes.icon} />
+                <span className={classes.buttonText}>Projects</span>
+              </Button>
+            </Link>
+            <Link to={'/about/'} className={classes.homeLink}>
+              <Button className={classes.button} color={"inherit"} variant={"text"}>
+                <Person className={classes.icon} />
+                <span className={classes.buttonText}>About</span>
+              </Button>
+            </Link>
+          </div>
+        </Toolbar>
+      </AppBar>
+    </header>
+  )
 }
 
 Header.propTypes = {
@@ -103,4 +93,4 @@ Header.defaultProps = {
   defaultShowMenu: true
 };
 
-export default withStyles(styles)(Header)
+export default Header
