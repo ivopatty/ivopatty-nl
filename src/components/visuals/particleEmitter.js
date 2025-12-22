@@ -30,6 +30,19 @@ const ParticleEmitter = () => {
               enable: false
             }
           },
+          color: {
+            value: ["#64FFDA", "#00D9FF", "#4FC3F7"]
+          },
+          opacity: {
+            value: 0.5,
+            random: true,
+            anim: {
+              enable: true,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false
+            }
+          },
           size: {
             value: 3,
             random: true,

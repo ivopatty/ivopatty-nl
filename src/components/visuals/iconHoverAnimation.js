@@ -1,12 +1,13 @@
 const animation = theme => ({
   icon: {
-    fill: theme.palette.primary.light,
-    transition: '0.2s all ease-in-out',
-    "-webkit-transition": '0.2s all ease-in-out',
+    fill: theme.palette.text.secondary,
+    transition: 'all 0.3s ease',
+    "-webkit-transition": 'all 0.3s ease',
     "&:hover": {
       transform: "scale(1.1)",
-      filter: "drop-shadow( 0px 3px 15px rgba(0, 0, 0, .5))",
-      "-webkit-filter": "drop-shadow( 0px 3px 15px rgba(0, 0, 0, .5))",
+      fill: theme.palette.primary.main,
+      filter: `drop-shadow(0 0 8px ${theme.palette.primary.main})`,
+      "-webkit-filter": `drop-shadow(0 0 8px ${theme.palette.primary.main})`,
     }
   }
 });

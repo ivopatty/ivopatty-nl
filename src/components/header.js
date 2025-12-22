@@ -12,20 +12,39 @@ import Brush from '@mui/icons-material/Brush';
 const useStyles = makeStyles()((theme) => ({
   homeLink: {
     textDecoration: 'none',
-    color: '#fff',
+    color: theme.palette.text.primary,
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.main,
+    },
   },
   transparent: {
-    backgroundColor: 'rgba(0,0,0,0)',
-    boxShadow: "0px 0px 0px 0px rgba(0,0,0,0) "
+    background: 'transparent',
+    backdropFilter: 'none',
+    WebkitBackdropFilter: 'none',
+    boxShadow: 'none',
+    borderBottom: '1px solid transparent',
   },
   banner: {
-    transition: 'all 0.2s linear',
+    background: 'rgba(10, 25, 47, 0.7)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    borderBottom: `1px solid ${theme.palette.divider}`,
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   },
   button: {
-    margin: theme.spacing(1)
+    margin: theme.spacing(1),
+    color: theme.palette.text.primary,
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.main,
+      background: 'rgba(100, 255, 218, 0.05)',
+      transform: 'translateY(-2px)',
+    },
   },
   icon: {
     marginRight: theme.spacing(1),
+    transition: 'all 0.3s ease',
     [theme.breakpoints.down('sm')]: {
       marginRight: 0
     }

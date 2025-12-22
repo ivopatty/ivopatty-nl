@@ -29,18 +29,27 @@ const useStyles = makeStyles()((theme) => ({
   },
   text: {
     padding: theme.spacing(10),
+    marginTop: 64,
+    justifyContent: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    background: 'rgba(17, 34, 64, 0.5)',
+    backdropFilter: 'blur(10px)',
+    WebkitBackdropFilter: 'blur(10px)',
+    border: `1px solid ${theme.palette.divider}`,
+    borderRadius: 16,
     [theme.breakpoints.down('md')]: {
       marginTop: 0,
       padding: theme.spacing(2),
     },
-    marginTop: 64,
-    justifyContent: 'center',
-    display: 'flex',
-    flexDirection: 'column'
   },
   name: {
     fontSize: '3em',
     fontWeight: 800,
+    background: `linear-gradient(135deg, ${theme.palette.text.primary} 0%, ${theme.palette.primary.main} 100%)`,
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
     [theme.breakpoints.up('md')]: {
       fontSize: '7em'
     },
@@ -51,7 +60,14 @@ const useStyles = makeStyles()((theme) => ({
   },
   button: {
     marginTop: theme.spacing(2),
-    textDecoration: 'none'
+    textDecoration: 'none',
+    color: theme.palette.primary.main,
+    borderColor: theme.palette.primary.main,
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      background: 'rgba(100, 255, 218, 0.1)',
+      boxShadow: `0 0 20px ${theme.palette.primary.main}40`,
+    },
   },
   socials: {
     flexDirection: 'row',
@@ -60,7 +76,13 @@ const useStyles = makeStyles()((theme) => ({
   },
   icon: {
     width: 30,
-    marginRight: theme.spacing(1)
+    marginRight: theme.spacing(1),
+    '& svg': {
+      transition: 'all 0.3s ease',
+    },
+    '&:hover svg': {
+      filter: `drop-shadow(0 0 8px ${theme.palette.primary.main})`,
+    },
   }
 }));
 
@@ -90,10 +112,10 @@ const About = ({ data }) => {
             <Button className={classes.button} variant={"outlined"}>Let's Talk</Button>
           </a>
           <div className={classes.socials}>
-            <a href="https://twitter.com/ivopatty" className={classes.icon}><Twitter fill={"#ababab"} /></a>
-            <a href="https://instagram.com/ivopatty" className={classes.icon}><Instagram fill={"#ababab"} /></a>
-            <a href="https://www.linkedin.com/in/ivopatty" className={classes.icon}><LinkedIn fill={"#ababab"} /></a>
-            <a href="https://github.com/ivopatty" className={classes.icon}><Github fill={"#ababab"} /></a>
+            <a href="https://twitter.com/ivopatty" className={classes.icon}><Twitter /></a>
+            <a href="https://instagram.com/ivopatty" className={classes.icon}><Instagram /></a>
+            <a href="https://www.linkedin.com/in/ivopatty" className={classes.icon}><LinkedIn /></a>
+            <a href="https://github.com/ivopatty" className={classes.icon}><Github /></a>
           </div>
         </Grid>
       </Grid>

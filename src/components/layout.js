@@ -1,10 +1,43 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { graphql, Link, StaticQuery } from "gatsby"
-import CssBaseline from '@mui/material/CssBaseline';
 import Header from "./header"
 import ArrowUp from '@mui/icons-material/ArrowUpward';
 import Typography from "@mui/material/Typography";
+import { makeStyles } from 'tss-react/mui';
+
+const useStyles = makeStyles()((theme) => ({
+  footer: {
+    background: 'rgba(10, 25, 47, 0.85)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    borderTop: `1px solid ${theme.palette.divider}`,
+    zIndex: 100,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: theme.spacing(2.25),
+    color: theme.palette.text.secondary,
+  },
+  footerLink: {
+    textDecoration: 'none',
+    color: theme.palette.primary.main,
+    transition: 'color 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.light,
+    },
+  },
+  scrollButton: {
+    cursor: 'pointer',
+    color: theme.palette.text.secondary,
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      color: theme.palette.primary.main,
+      transform: 'translateY(-2px)',
+    },
+  },
+}));
 
 const smoothScroll = () => {
   const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -14,40 +47,38 @@ const smoothScroll = () => {
   }
 };
 
-const Layout = ({ children, defaultShowMenu }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
+const Layout = ({ children, defaultShowMenu }) => {
+  const { classes } = useStyles();
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+            }
           }
         }
-      }
-    `}
-    render={data => (
-      <>
-        <CssBaseline />
-        <Header defaultShowMenu={defaultShowMenu} siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
-        <footer style={{
-          backgroundColor: '#fafafa',
-          zIndex: 100,
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          padding: 18
-        }}>
-          <Typography>
-            © {new Date().getFullYear()} - Ivo Patty
-          </Typography>
-          <Typography><Link to={'/legal'} style={{ textDecoration: 'none' }}>Legal & Privacy</Link></Typography>
-          <ArrowUp onClick={smoothScroll} />
-        </footer>
-      </>
-    )}
-  />
-);
+      `}
+      render={data => (
+        <>
+          <Header defaultShowMenu={defaultShowMenu} siteTitle={data.site.siteMetadata.title} />
+          <main>{children}</main>
+          <footer className={classes.footer}>
+            <Typography variant="body2">
+              © {new Date().getFullYear()} - Ivo Patty
+            </Typography>
+            <Typography variant="body2">
+              <Link to={'/legal'} className={classes.footerLink}>Legal & Privacy</Link>
+            </Typography>
+            <ArrowUp className={classes.scrollButton} onClick={smoothScroll} />
+          </footer>
+        </>
+      )}
+    />
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

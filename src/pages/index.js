@@ -18,47 +18,81 @@ import { GlobalStyles } from "tss-react";
 const useStyles = makeStyles()((theme) => ({
   '@global': {
     ".logo-circle": {
-      fill: theme.palette.primary.dark,
+      fill: theme.palette.background.paper,
     },
     '.logo-letter': {
-      fill: "#fff"
+      fill: theme.palette.primary.main
     },
     'body': {
       overflowX: 'hidden'
     }
   },
   homeContainer: {
-    height: '100vh',
+    minHeight: '100vh',
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
     alignItems: 'center',
     maxWidth: '100vw',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    position: 'relative',
+    background: 'transparent',
   },
   headerImage: {
-    backgroundColor: theme.palette.primary.main,
     position: 'fixed !important',
-    height: 'inherit',
+    height: '100vh',
     width: '100vw',
     zIndex: -1,
-    mixBlendMode: 'multiply'
+    opacity: 0.2,
+    objectFit: 'cover',
+  },
+  headerImageOverlay: {
+    position: 'fixed !important',
+    height: '100vh',
+    width: '100vw',
+    zIndex: -1,
+    background: 'linear-gradient(135deg, rgba(10, 25, 47, 0.7) 0%, rgba(17, 34, 64, 0.6) 100%)',
+  },
+  heroGlassCard: {
+    background: 'rgba(17, 34, 64, 0.4)',
+    backdropFilter: 'blur(20px)',
+    WebkitBackdropFilter: 'blur(20px)',
+    border: `1px solid ${theme.palette.divider}`,
+    borderRadius: 24,
+    padding: theme.spacing(6),
+    boxShadow: '0 8px 32px 0 rgba(10, 25, 47, 0.37)',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(4),
+      borderRadius: 16,
+    },
   },
   logo: {
     width: 200,
     height: 200,
     marginBottom: theme.spacing(3),
-    filter: "drop-shadow( 0px 3px 15px rgba(0, 0, 0, .5))"
+    filter: `drop-shadow(0px 0px 20px ${theme.palette.primary.main}40)`,
+    transition: 'filter 0.3s ease',
+    '&:hover': {
+      filter: `drop-shadow(0px 0px 30px ${theme.palette.primary.main}60)`,
+    },
   },
   icon: {
     width: 50, height: 50
   },
   name: {
-    color: '#fff',
     marginBottom: theme.spacing(1),
+    background: `linear-gradient(135deg, ${theme.palette.text.primary} 0%, ${theme.palette.primary.main} 100%)`,
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+    fontWeight: 800,
   },
   subtext: {
-    color: '#fff'
+    color: theme.palette.text.secondary,
+    textAlign: 'center',
   }
 }));
 
@@ -71,10 +105,10 @@ const IndexPage = ({ data }) => {
       <GlobalStyles
         styles={{
           ".logo-circle": {
-            fill: theme.palette.primary.dark,
+            fill: theme.palette.background.paper,
           },
           '.logo-letter': {
-            fill: "#fff"
+            fill: theme.palette.primary.main
           },
           'body': {
             overflowX: 'hidden'
@@ -84,28 +118,27 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" keywords={[`ivopatty`, `ivo`, `patty`, `consultant`]} />
       <div className={classes.homeContainer}>
         <GatsbyImage className={classes.headerImage} image={getImage(data.file)} alt="Background" style={{ position: "absolute" }} />
-        <div className={classes.headerImage} />
+        <div className={classes.headerImageOverlay} />
         <Grow in={true} timeout={750}>
-          <div>
+          <div className={classes.heroGlassCard}>
             <Logo className={classes.logo} />
+            <Slide direction={"up"} in={true} timeout={800}>
+              <div>
+                <Grow in={true} timeout={800}>
+                  <div>
+                    <Typography variant={"h1"} align={"center"} className={classes.name}>
+                      Ivo Patty
+                    </Typography>
+                    <Typography className={classes.subtext} align={"center"} variant="body1">
+                      Leader / Innovator / Data Engineer / Consultant / Developer
+                    </Typography>
+                  </div>
+                </Grow>
+              </div>
+            </Slide>
+            <SocialIcons delay={800} />
           </div>
         </Grow>
-
-        <Slide direction={"up"} in={true} timeout={800}>
-          <div>
-            <Grow in={true} timeout={800}>
-              <div>
-                <Typography variant={"h1"} align={"center"} className={classes.name}>
-                  Ivo Patty
-                </Typography>
-                <Typography className={classes.subtext} align={"center"}>
-                  Leader / Innovator / Data Engineer / Consultant / Developer
-                </Typography>
-              </div>
-            </Grow>
-          </div>
-        </Slide>
-        <SocialIcons delay={800} />
       </div>
       <Experience />
     </Layout>
