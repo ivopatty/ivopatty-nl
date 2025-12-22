@@ -37,7 +37,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Roboto']
+          families: ['Roboto', 'Montserrat:900', 'Syncopate:700']
         }
       }
     },

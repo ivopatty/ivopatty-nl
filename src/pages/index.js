@@ -37,6 +37,7 @@ const useStyles = makeStyles()((theme) => ({
     overflow: 'hidden',
     position: 'relative',
     background: 'transparent',
+    padding: theme.spacing(4),
   },
   headerImage: {
     position: 'fixed !important',
@@ -51,48 +52,84 @@ const useStyles = makeStyles()((theme) => ({
     height: '100vh',
     width: '100vw',
     zIndex: -1,
-    background: 'linear-gradient(135deg, rgba(10, 25, 47, 0.7) 0%, rgba(17, 34, 64, 0.6) 100%)',
+    background: 'linear-gradient(135deg, rgba(10, 25, 47, 0.85) 0%, rgba(17, 34, 64, 0.75) 100%)',
   },
-  heroGlassCard: {
-    background: 'rgba(17, 34, 64, 0.4)',
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    border: `1px solid ${theme.palette.divider}`,
-    borderRadius: 24,
-    padding: theme.spacing(6),
-    boxShadow: '0 8px 32px 0 rgba(10, 25, 47, 0.37)',
+  contentWrapper: {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(4),
-      borderRadius: 16,
-    },
+    zIndex: 1,
+    textAlign: 'center',
   },
   logo: {
-    width: 200,
-    height: 200,
-    marginBottom: theme.spacing(3),
-    filter: `drop-shadow(0px 0px 20px ${theme.palette.primary.main}40)`,
-    transition: 'filter 0.3s ease',
+    width: 180,
+    height: 180,
+    marginBottom: theme.spacing(4),
+    filter: `drop-shadow(0px 0px 30px ${theme.palette.primary.main}50)`,
+    transition: 'transform 0.5s ease, filter 0.5s ease',
     '&:hover': {
-      filter: `drop-shadow(0px 0px 30px ${theme.palette.primary.main}60)`,
+      transform: 'scale(1.05) rotate(5deg)',
+      filter: `drop-shadow(0px 0px 50px ${theme.palette.primary.main}80)`,
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: 140,
+      height: 140,
+      marginBottom: theme.spacing(3),
     },
   },
-  icon: {
-    width: 50, height: 50
-  },
   name: {
-    marginBottom: theme.spacing(1),
-    background: `linear-gradient(135deg, ${theme.palette.text.primary} 0%, ${theme.palette.primary.main} 100%)`,
+    marginBottom: theme.spacing(2),
+    fontSize: '5rem',
+    fontWeight: 700,
+    fontFamily: '"Syncopate", sans-serif',
+    letterSpacing: '0.1em',
+    background: 'linear-gradient(to right, #E6F1FF 20%, #64FFDA 80%)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
-    fontWeight: 800,
+    filter: 'drop-shadow(0 0 20px rgba(100, 255, 218, 0.3))',
+    [theme.breakpoints.down('md')]: {
+      fontSize: '3.5rem',
+      letterSpacing: '0.05em',
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '1.8rem',
+      letterSpacing: '0.05em',
+    },
   },
   subtext: {
     color: theme.palette.text.secondary,
-    textAlign: 'center',
+    fontFamily: '"Montserrat", sans-serif',
+    fontSize: '1.25rem',
+    fontWeight: 400,
+    letterSpacing: '0.15em',
+    textTransform: 'uppercase',
+    marginBottom: theme.spacing(6),
+    maxWidth: '800px',
+    lineHeight: 1.6,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.9rem',
+      marginBottom: theme.spacing(4),
+    },
+  },
+  socialGlassPill: {
+    // background: 'rgba(255, 255, 255, 0.03)',
+    // backdropFilter: 'blur(16px) saturate(180%)',
+    // WebkitBackdropFilter: 'blur(16px) saturate(180%)',
+    // border: '1px solid rgba(255, 255, 255, 0.1)',
+    // borderRadius: 50,
+    // padding: theme.spacing(1.5, 4),
+    // display: 'flex',
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    // boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
+    // transition: 'all 0.3s ease',
+    // '&:hover': {
+    //   background: 'rgba(255, 255, 255, 0.08)',
+    //   boxShadow: '0 8px 32px 0 rgba(100, 255, 218, 0.15)',
+    //   borderColor: 'rgba(100, 255, 218, 0.3)',
+    //   transform: 'translateY(-2px)',
+    // }
   }
 }));
 
@@ -119,26 +156,36 @@ const IndexPage = ({ data }) => {
       <div className={classes.homeContainer}>
         <GatsbyImage className={classes.headerImage} image={getImage(data.file)} alt="Background" style={{ position: "absolute" }} />
         <div className={classes.headerImageOverlay} />
-        <Grow in={true} timeout={750}>
-          <div className={classes.heroGlassCard}>
-            <Logo className={classes.logo} />
-            <Slide direction={"up"} in={true} timeout={800}>
-              <div>
-                <Grow in={true} timeout={800}>
-                  <div>
-                    <Typography variant={"h1"} align={"center"} className={classes.name}>
-                      Ivo Patty
-                    </Typography>
-                    <Typography className={classes.subtext} align={"center"} variant="body1">
-                      Leader / Innovator / Data Engineer / Consultant / Developer
-                    </Typography>
-                  </div>
-                </Grow>
-              </div>
-            </Slide>
-            <SocialIcons delay={800} />
-          </div>
-        </Grow>
+
+        <div className={classes.contentWrapper}>
+          <Grow in={true} timeout={1000}>
+            <div style={{ display: 'flex', justifyContent: 'center' }}>
+              <Logo className={classes.logo} />
+            </div>
+          </Grow>
+
+          <Slide direction={"up"} in={true} timeout={1200}>
+            <div>
+              <Typography variant={"h1"} align={"center"} className={classes.name}>
+                IVO PATTY
+              </Typography>
+            </div>
+          </Slide>
+
+          <Slide direction={"up"} in={true} timeout={1400}>
+            <div>
+              <Typography className={classes.subtext} align={"center"} variant="body1">
+                Leader &bull; Innovator &bull; Data Engineer &bull; Consultant
+              </Typography>
+            </div>
+          </Slide>
+
+          <Grow in={true} timeout={1600}>
+            <div className={classes.socialGlassPill}>
+              <SocialIcons delay={1600} />
+            </div>
+          </Grow>
+        </div>
       </div>
       <Experience />
     </Layout>

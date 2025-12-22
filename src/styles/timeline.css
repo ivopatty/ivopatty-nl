@@ -21,12 +21,12 @@
     height: 100%;
     width: 2px;
     background: linear-gradient(180deg,
-        transparent 0%,
-        rgba(100, 255, 218, 0.3) 5%,
-        #64FFDA 15%,
-        #00D9FF 85%,
-        rgba(0, 217, 255, 0.3) 95%,
-        transparent 100%);
+            transparent 0%,
+            rgba(100, 255, 218, 0.3) 5%,
+            #64FFDA 15%,
+            #00D9FF 85%,
+            rgba(0, 217, 255, 0.3) 95%,
+            transparent 100%);
     box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
 }
 
@@ -80,6 +80,7 @@
     }
 }
 
+
 .vertical-timeline-element-icon {
     position: absolute;
     top: 0;
@@ -88,13 +89,13 @@
     height: 40px;
     border-radius: 50%;
     box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2),
-                0 0 20px rgba(100, 255, 218, 0.4);
+        0 0 20px rgba(100, 255, 218, 0.4);
     transition: all 0.3s ease;
 }
 
 .vertical-timeline-element:hover .vertical-timeline-element-icon {
     box-shadow: 0 0 0 6px rgba(100, 255, 218, 0.3),
-                0 0 30px rgba(100, 255, 218, 0.6);
+        0 0 30px rgba(100, 255, 218, 0.6);
     transform: scale(1.1);
 }
 
@@ -111,7 +112,7 @@
 
 @media only screen and (min-width: 1170px) {
     .vertical-timeline--two-columns .vertical-timeline-element-content {
-        margin-left: 10px !important;
+        margin-left: 60px !important;
     }
 }
 
@@ -237,23 +238,28 @@
 .vertical-timeline-element-content {
     position: relative;
     margin-left: 60px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(100, 255, 218, 0.2);
+    background: linear-gradient(135deg, rgba(17, 34, 64, 0.7) 0%, rgba(17, 34, 64, 0.4) 100%) !important;
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 20px;
     padding: 1.75em;
-    box-shadow: 0 8px 32px 0 rgba(10, 25, 47, 0.3),
-                0 2px 8px 0 rgba(100, 255, 218, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .vertical-timeline-element-content:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(100, 255, 218, 0.4);
-    box-shadow: 0 12px 48px 0 rgba(10, 25, 47, 0.4),
-                0 4px 16px 0 rgba(100, 255, 218, 0.2);
+    background: linear-gradient(135deg, rgba(17, 34, 64, 0.8) 0%, rgba(17, 34, 64, 0.5) 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 12px 48px 0 rgba(0, 0, 0, 0.5),
+        0 4px 16px 0 rgba(100, 255, 218, 0.1);
     transform: translateY(-4px);
+}
+
+.vertical-timeline-element-content-arrow {
+    border-right: rgba(17, 34, 64, 0.7) !important;
 }
 
 .vertical-timeline-element--no-children .vertical-timeline-element-content {
@@ -376,7 +382,7 @@
     .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content,
     .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content {
         float: right;
-        margin-right: 10px;
+        margin-right: 60px;
     }
 
     .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content::before,
@@ -391,8 +397,8 @@
     .vertical-timeline--two-columns .vertical-timeline-element.vertical-timeline-element--right .vertical-timeline-element-content .vertical-timeline-element-date,
     .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even):not(.vertical-timeline-element--left) .vertical-timeline-element-content .vertical-timeline-element-date {
         left: auto;
-        right: 10%;
-        text-align: right
+        right: 200px;
+        text-align: left
     }
 }
 

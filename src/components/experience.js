@@ -8,7 +8,7 @@ import School from "@mui/icons-material/School";
 import Straighten from "@mui/icons-material/Straighten"
 import Search from "@mui/icons-material/Search";
 import DesktopMac from '@mui/icons-material/DesktopMac'
-import "react-vertical-timeline-component/style.min.css";
+// import "react-vertical-timeline-component/style.min.css";
 import "../styles/timeline.css"
 import { makeStyles } from 'tss-react/mui';
 import AssistantPhoto from '@mui/icons-material/AssistantPhoto';

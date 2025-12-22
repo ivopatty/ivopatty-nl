@@ -8,10 +8,10 @@ import { makeStyles } from 'tss-react/mui';
 
 const useStyles = makeStyles()((theme) => ({
   footer: {
-    background: 'rgba(10, 25, 47, 0.85)',
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    borderTop: `1px solid ${theme.palette.divider}`,
+    background: 'linear-gradient(to top, rgba(17, 34, 64, 0.9) 0%, rgba(17, 34, 64, 0.7) 100%)',
+    backdropFilter: 'blur(20px) saturate(180%)',
+    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+    borderTop: '1px solid rgba(255, 255, 255, 0.1)',
     zIndex: 100,
     display: 'flex',
     flexDirection: 'row',

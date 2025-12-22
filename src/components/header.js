@@ -26,10 +26,10 @@ const useStyles = makeStyles()((theme) => ({
     borderBottom: '1px solid transparent',
   },
   banner: {
-    background: 'rgba(10, 25, 47, 0.7)',
-    backdropFilter: 'blur(20px)',
-    WebkitBackdropFilter: 'blur(20px)',
-    borderBottom: `1px solid ${theme.palette.divider}`,
+    background: 'linear-gradient(to bottom, rgba(17, 34, 64, 0.9) 0%, rgba(17, 34, 64, 0.7) 100%)',
+    backdropFilter: 'blur(20px) saturate(180%)',
+    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+    borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
     transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
   },
   button: {
