@@ -1,7 +1,7 @@
 import React from "react"
 
 import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import { makeStyles } from 'tss-react/mui';
 import Typography from "@mui/material/Typography";
 import Logo from "../components/visuals/logo"
@@ -11,6 +11,7 @@ import SocialIcons from "../components/socialIcons";
 import { graphql } from 'gatsby'
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import "../styles/timeline.css"
+import "../styles/animations.css"
 import Experience from "../components/experience";
 import { useStyles as styleFunc } from "tss-react/mui";
 import { GlobalStyles } from "tss-react";
@@ -44,15 +45,16 @@ const useStyles = makeStyles()((theme) => ({
     height: '100vh',
     width: '100vw',
     zIndex: -1,
-    opacity: 0.2,
+    opacity: 0.15,
     objectFit: 'cover',
+    filter: 'blur(3px)',
   },
   headerImageOverlay: {
     position: 'fixed !important',
     height: '100vh',
     width: '100vw',
     zIndex: -1,
-    background: 'linear-gradient(135deg, rgba(10, 25, 47, 0.85) 0%, rgba(17, 34, 64, 0.75) 100%)',
+    background: 'radial-gradient(circle at 50% 20%, rgba(10, 25, 47, 0.75) 0%, rgba(10, 25, 47, 0.9) 50%, rgba(10, 25, 47, 0.95) 100%)',
   },
   contentWrapper: {
     display: 'flex',
@@ -62,74 +64,65 @@ const useStyles = makeStyles()((theme) => ({
     textAlign: 'center',
   },
   logo: {
-    width: 180,
-    height: 180,
-    marginBottom: theme.spacing(4),
-    filter: `drop-shadow(0px 0px 30px ${theme.palette.primary.main}50)`,
-    transition: 'transform 0.5s ease, filter 0.5s ease',
+    width: 200,
+    height: 200,
+    marginBottom: theme.spacing(5),
+    filter: `drop-shadow(0px 0px 40px ${theme.palette.primary.main}60)`,
+    transition: 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)',
+    animation: 'float 6s ease-in-out infinite',
     '&:hover': {
-      transform: 'scale(1.05) rotate(5deg)',
-      filter: `drop-shadow(0px 0px 50px ${theme.palette.primary.main}80)`,
+      transform: 'scale(1.08) rotate(8deg)',
+      filter: `drop-shadow(0px 0px 60px ${theme.palette.primary.main}90) drop-shadow(0px 0px 80px ${theme.palette.primary.main}40)`,
     },
     [theme.breakpoints.down('sm')]: {
-      width: 140,
-      height: 140,
+      width: 150,
+      height: 150,
       marginBottom: theme.spacing(3),
     },
   },
   name: {
-    marginBottom: theme.spacing(2),
-    fontSize: '5rem',
-    fontWeight: 700,
+    marginBottom: theme.spacing(3),
+    fontSize: '5.5rem',
+    fontWeight: 800,
     fontFamily: '"Syncopate", sans-serif',
-    letterSpacing: '0.1em',
-    background: 'linear-gradient(to right, #E6F1FF 20%, #64FFDA 80%)',
+    letterSpacing: '0.12em',
+    background: 'linear-gradient(135deg, #E6F1FF 0%, #64FFDA 50%, #00D9FF 100%)',
+    backgroundSize: '200% auto',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
-    filter: 'drop-shadow(0 0 20px rgba(100, 255, 218, 0.3))',
+    filter: 'drop-shadow(0 0 30px rgba(100, 255, 218, 0.4)) drop-shadow(0 0 60px rgba(100, 255, 218, 0.2))',
+    animation: 'gradientShift 8s ease infinite',
     [theme.breakpoints.down('md')]: {
-      fontSize: '3.5rem',
-      letterSpacing: '0.05em',
+      fontSize: '4rem',
+      letterSpacing: '0.08em',
     },
     [theme.breakpoints.down('sm')]: {
-      fontSize: '1.8rem',
+      fontSize: '2rem',
       letterSpacing: '0.05em',
     },
   },
   subtext: {
-    color: theme.palette.text.secondary,
+    color: '#A8B2D1',
     fontFamily: '"Montserrat", sans-serif',
-    fontSize: '1.25rem',
-    fontWeight: 400,
-    letterSpacing: '0.15em',
+    fontSize: '1.3rem',
+    fontWeight: 500,
+    letterSpacing: '0.18em',
     textTransform: 'uppercase',
-    marginBottom: theme.spacing(6),
-    maxWidth: '800px',
-    lineHeight: 1.6,
+    marginBottom: theme.spacing(7),
+    maxWidth: '900px',
+    lineHeight: 1.8,
+    filter: 'drop-shadow(0 0 10px rgba(168, 178, 209, 0.2))',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '0.9rem',
+      fontSize: '0.95rem',
       marginBottom: theme.spacing(4),
+      letterSpacing: '0.12em',
     },
   },
   socialGlassPill: {
-    // background: 'rgba(255, 255, 255, 0.03)',
-    // backdropFilter: 'blur(16px) saturate(180%)',
-    // WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-    // border: '1px solid rgba(255, 255, 255, 0.1)',
-    // borderRadius: 50,
-    // padding: theme.spacing(1.5, 4),
-    // display: 'flex',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.2)',
-    // transition: 'all 0.3s ease',
-    // '&:hover': {
-    //   background: 'rgba(255, 255, 255, 0.08)',
-    //   boxShadow: '0 8px 32px 0 rgba(100, 255, 218, 0.15)',
-    //   borderColor: 'rgba(100, 255, 218, 0.3)',
-    //   transform: 'translateY(-2px)',
-    // }
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 }));
 
@@ -152,7 +145,7 @@ const IndexPage = ({ data }) => {
           }
         }}
       />
-      <SEO title="Home" keywords={[`ivopatty`, `ivo`, `patty`, `consultant`]} />
+      <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <div className={classes.homeContainer}>
         <GatsbyImage className={classes.headerImage} image={getImage(data.file)} alt="Background" style={{ position: "absolute" }} />
         <div className={classes.headerImageOverlay} />
@@ -194,16 +187,16 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   query {
-    file(relativePath: { eq: "2.jpg" }) {
+  file(relativePath: { eq: "2.jpg" }) {
       childImageSharp {
-        gatsbyImageData(
-            width: 1500
+      gatsbyImageData(
+        width: 1500
             placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
-          )
-      }
+      )
     }
   }
+}
 `;
 
 export default IndexPage

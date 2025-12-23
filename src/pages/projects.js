@@ -7,12 +7,13 @@ import Typography from "@mui/material/Typography";
 import Grid from "@mui/material/Grid";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Chip from "@mui/material/Chip";
-import SEO from "../components/seo";
+import Seo from "../components/seo";
 import { makeStyles } from 'tss-react/mui';
 import Public from "@mui/icons-material/Public";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import LinkIcon from "@mui/icons-material/Link";
+import "../styles/animations.css";
 
 const useStyles = makeStyles()((theme) => ({
   pageContainer: {
@@ -40,83 +41,89 @@ const useStyles = makeStyles()((theme) => ({
   },
   title: {
     fontFamily: '"Syncopate", sans-serif',
-    fontWeight: 700,
-    fontSize: '3.5rem',
-    letterSpacing: '0.05em',
+    fontWeight: 800,
+    fontSize: '4rem',
+    letterSpacing: '0.08em',
     marginBottom: theme.spacing(2),
-    background: 'linear-gradient(to right, #E6F1FF 20%, #64FFDA 80%)',
+    background: 'linear-gradient(135deg, #E6F1FF 0%, #64FFDA 50%, #00D9FF 100%)',
+    backgroundSize: '200% auto',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
-    filter: 'drop-shadow(0 0 20px rgba(100, 255, 218, 0.2))',
+    filter: 'drop-shadow(0 0 30px rgba(100, 255, 218, 0.3)) drop-shadow(0 0 60px rgba(100, 255, 218, 0.15))',
+    animation: 'gradientShift 8s ease infinite',
     [theme.breakpoints.down('sm')]: {
-      fontSize: '2rem',
+      fontSize: '2.2rem',
     },
   },
   subText: {
     fontFamily: '"Montserrat", sans-serif',
-    color: theme.palette.text.secondary,
-    fontSize: '1rem',
-    fontWeight: 400,
-    letterSpacing: '0.2em',
+    color: '#A8B2D1',
+    fontSize: '1.05rem',
+    fontWeight: 500,
+    letterSpacing: '0.22em',
     textTransform: 'uppercase',
     maxWidth: 600,
     margin: '0 auto',
-    lineHeight: 1.6,
+    lineHeight: 1.8,
+    filter: 'drop-shadow(0 0 8px rgba(168, 178, 209, 0.15))',
   },
   card: {
     height: "100%",
     display: 'flex',
     flexDirection: 'column',
-    background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
-    backdropFilter: 'blur(20px) saturate(180%)',
-    WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-    border: '1px solid rgba(255, 255, 255, 0.08)',
-    borderTop: '1px solid rgba(255, 255, 255, 0.15)',
-    borderLeft: '1px solid rgba(255, 255, 255, 0.15)',
-    borderRadius: 24,
+    background: 'linear-gradient(135deg, rgba(17, 34, 64, 0.65) 0%, rgba(17, 34, 64, 0.45) 100%)',
+    backdropFilter: 'blur(24px) saturate(200%)',
+    WebkitBackdropFilter: 'blur(24px) saturate(200%)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    borderTop: '2px solid rgba(255, 255, 255, 0.2)',
+    borderLeft: '2px solid rgba(255, 255, 255, 0.2)',
+    borderRadius: 28,
     overflow: 'hidden',
-    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
-    transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+    boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.4)',
+    transition: 'all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1)',
     position: 'relative',
     '&::before': {
       content: '""',
       position: 'absolute',
       top: 0, left: 0, right: 0, height: '100%',
-      background: 'radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(100, 255, 218, 0.06), transparent 40%)',
+      background: 'radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(100, 255, 218, 0.08), transparent 40%)',
       opacity: 0,
       transition: 'opacity 0.5s',
       pointerEvents: 'none',
       zIndex: 2,
     },
     '&:hover': {
-      transform: 'translateY(-10px)',
-      background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%)',
-      borderColor: 'rgba(100, 255, 218, 0.3)',
+      transform: 'translateY(-12px) scale(1.02)',
+      background: 'linear-gradient(135deg, rgba(29, 45, 80, 0.75) 0%, rgba(29, 45, 80, 0.55) 100%)',
+      borderColor: 'rgba(100, 255, 218, 0.35)',
+      borderTopColor: 'rgba(100, 255, 218, 0.5)',
+      borderLeftColor: 'rgba(100, 255, 218, 0.5)',
       boxShadow: `
-        0 20px 60px 0 rgba(0, 0, 0, 0.5),
+        0 24px 72px 0 rgba(0, 0, 0, 0.6),
+        0 8px 24px 0 rgba(100, 255, 218, 0.15),
         0 0 0 1px rgba(100, 255, 218, 0.1) inset
       `,
       '&::before': {
         opacity: 1,
       },
       '& $image': {
-        transform: 'scale(1.05)',
-        filter: 'grayscale(0%)',
+        transform: 'scale(1.08)',
+        filter: 'grayscale(0%) brightness(1.1)',
       },
     },
   },
   image: {
     height: 240,
     width: '100%',
-    backgroundColor: 'rgba(10, 25, 47, 0.5)',
-    borderBottom: `1px solid rgba(255, 255, 255, 0.05)`,
+    backgroundColor: 'rgba(10, 25, 47, 0.6)',
+    borderBottom: `1px solid rgba(255, 255, 255, 0.08)`,
     display: 'flex',
     justifyContent: 'center',
     overflow: 'hidden',
     position: 'relative',
-    transition: 'all 0.6s ease',
-    filter: 'grayscale(30%)',
+    transition: 'all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1)',
+    filter: 'grayscale(20%) brightness(0.95)',
   },
   cardContent: {
     display: 'flex',
@@ -197,7 +204,7 @@ const useStyles = makeStyles()((theme) => ({
 
 const Projects = ({ data }) => {
   const { classes } = useStyles();
-  
+
   // Mouse move handler for card hover effect
   const handleMouseMove = (e) => {
     const target = e.currentTarget;
@@ -210,7 +217,7 @@ const Projects = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={"Projects"} />
+      <Seo title={"Projects"} />
       <div className={classes.pageContainer}>
         <Grid container className={classes.wrapper} alignItems={"stretch"} spacing={4}>
           <Grid item xs={12} className={classes.headerSection}>
@@ -221,8 +228,8 @@ const Projects = ({ data }) => {
           </Grid>
           {data.contentfulHomePage.experiences.map((item, key) => (
             <Grid item xs={12} sm={6} md={4} lg={3} key={key} alignItems={"stretch"}>
-              <Card 
-                className={classes.card} 
+              <Card
+                className={classes.card}
                 elevation={0}
                 onMouseMove={handleMouseMove}
               >

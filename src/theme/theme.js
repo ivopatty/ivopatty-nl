@@ -5,7 +5,7 @@ const theme = createTheme({
     mode: 'dark',
     primary: {
       main: '#64FFDA',
-      light: '#5BE9CD',
+      light: '#8FFFF0',
       dark: '#4FC3A7',
       contrastText: '#0A192F',
     },
@@ -18,16 +18,24 @@ const theme = createTheme({
     background: {
       default: '#0A192F',
       paper: '#112240',
+      glass: 'rgba(17, 34, 64, 0.6)',
+      glassHover: 'rgba(29, 45, 80, 0.7)',
     },
     text: {
       primary: '#E6F1FF',
-      secondary: '#8892B0',
+      secondary: '#A8B2D1',
       disabled: '#495670',
+      gradient: 'linear-gradient(135deg, #E6F1FF 0%, #64FFDA 100%)',
     },
-    divider: 'rgba(100, 255, 218, 0.1)',
+    divider: 'rgba(100, 255, 218, 0.12)',
     action: {
-      hover: 'rgba(100, 255, 218, 0.05)',
-      selected: 'rgba(100, 255, 218, 0.1)',
+      hover: 'rgba(100, 255, 218, 0.08)',
+      selected: 'rgba(100, 255, 218, 0.15)',
+    },
+    glow: {
+      primary: 'rgba(100, 255, 218, 0.4)',
+      secondary: 'rgba(0, 217, 255, 0.4)',
+      soft: 'rgba(100, 255, 218, 0.2)',
     },
   },
   typography: {
@@ -69,23 +77,48 @@ const theme = createTheme({
         body: {
           backgroundColor: '#0A192F',
           backgroundImage: `
-            radial-gradient(circle at 20% 50%, rgba(100, 255, 218, 0.03) 0%, transparent 50%),
-            radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.03) 0%, transparent 50%)
+            radial-gradient(circle at 20% 50%, rgba(100, 255, 218, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(0, 217, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 50% 0%, rgba(100, 255, 218, 0.02) 0%, transparent 80%)
           `,
           backgroundAttachment: 'fixed',
+          scrollBehavior: 'smooth',
+        },
+        '*': {
+          scrollbarWidth: 'thin',
+          scrollbarColor: 'rgba(100, 255, 218, 0.3) rgba(17, 34, 64, 0.3)',
+        },
+        '*::-webkit-scrollbar': {
+          width: '8px',
+        },
+        '*::-webkit-scrollbar-track': {
+          background: 'rgba(17, 34, 64, 0.3)',
+        },
+        '*::-webkit-scrollbar-thumb': {
+          background: 'rgba(100, 255, 218, 0.3)',
+          borderRadius: '4px',
+          '&:hover': {
+            background: 'rgba(100, 255, 218, 0.5)',
+          },
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          background: 'rgba(17, 34, 64, 0.7)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-          border: '1px solid rgba(100, 255, 218, 0.1)',
-          borderRadius: 16,
-          boxShadow: '0 8px 32px 0 rgba(10, 25, 47, 0.37)',
-          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          background: 'linear-gradient(135deg, rgba(17, 34, 64, 0.7) 0%, rgba(17, 34, 64, 0.5) 100%)',
+          backdropFilter: 'blur(20px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+          border: '1px solid rgba(255, 255, 255, 0.1)',
+          borderTop: '1px solid rgba(255, 255, 255, 0.2)',
+          borderLeft: '1px solid rgba(255, 255, 255, 0.2)',
+          borderRadius: 20,
+          boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
+          transition: 'all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1)',
+          '&:hover': {
+            transform: 'translateY(-4px)',
+            boxShadow: '0 12px 48px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(100, 255, 218, 0.1)',
+          },
         },
       },
     },
@@ -100,24 +133,30 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           textTransform: 'none',
-          fontWeight: 500,
-          transition: 'all 0.3s ease',
+          fontWeight: 600,
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          position: 'relative',
+          overflow: 'hidden',
         },
         outlined: {
-          borderColor: '#64FFDA',
+          borderColor: 'rgba(100, 255, 218, 0.4)',
           color: '#64FFDA',
+          borderWidth: '1.5px',
           '&:hover': {
-            borderColor: '#5BE9CD',
-            backgroundColor: 'rgba(100, 255, 218, 0.05)',
-            boxShadow: '0 0 20px rgba(100, 255, 218, 0.2)',
+            borderColor: '#64FFDA',
+            backgroundColor: 'rgba(100, 255, 218, 0.1)',
+            boxShadow: '0 0 20px rgba(100, 255, 218, 0.3)',
+            transform: 'translateY(-2px)',
           },
         },
         contained: {
           backgroundColor: '#64FFDA',
           color: '#0A192F',
+          boxShadow: '0 4px 12px rgba(100, 255, 218, 0.3)',
           '&:hover': {
-            backgroundColor: '#5BE9CD',
-            boxShadow: '0 0 20px rgba(100, 255, 218, 0.3)',
+            backgroundColor: '#8FFFF0',
+            boxShadow: '0 6px 20px rgba(100, 255, 218, 0.5)',
+            transform: 'translateY(-2px)',
           },
         },
       },
@@ -125,13 +164,16 @@ const theme = createTheme({
     MuiChip: {
       styleOverrides: {
         root: {
-          background: 'rgba(100, 255, 218, 0.1)',
+          background: 'rgba(100, 255, 218, 0.08)',
           color: '#64FFDA',
-          border: '1px solid rgba(100, 255, 218, 0.3)',
+          border: '1px solid rgba(100, 255, 218, 0.2)',
+          backdropFilter: 'blur(8px)',
           transition: 'all 0.3s ease',
           '&:hover': {
-            background: 'rgba(100, 255, 218, 0.2)',
-            boxShadow: '0 0 10px rgba(100, 255, 218, 0.2)',
+            background: 'rgba(100, 255, 218, 0.18)',
+            borderColor: 'rgba(100, 255, 218, 0.5)',
+            boxShadow: '0 0 12px rgba(100, 255, 218, 0.3)',
+            transform: 'translateY(-1px)',
           },
         },
       },
@@ -139,10 +181,11 @@ const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          backgroundColor: 'rgba(10, 25, 47, 0.85)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(100, 255, 218, 0.1)',
+          backgroundColor: 'rgba(10, 25, 47, 0.8)',
+          backdropFilter: 'blur(24px) saturate(180%)',
+          WebkitBackdropFilter: 'blur(24px) saturate(180%)',
+          borderBottom: '1px solid rgba(100, 255, 218, 0.15)',
+          boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2)',
         },
       },
     },
@@ -151,9 +194,11 @@ const theme = createTheme({
         root: {
           color: '#64FFDA',
           textDecoration: 'none',
-          transition: 'color 0.3s ease',
+          transition: 'all 0.3s ease',
+          position: 'relative',
           '&:hover': {
-            color: '#5BE9CD',
+            color: '#8FFFF0',
+            filter: 'drop-shadow(0 0 8px rgba(100, 255, 218, 0.5))',
           },
         },
       },
